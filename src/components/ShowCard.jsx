@@ -2,7 +2,7 @@ import DiscountButton from "./DiscountButton"
 
 function ShowCard({show}) {
     function getImageUrl(show) {
-        return `src/assets/images/playbills/${show.location.replaceAll(".", "").split(" ").join("")}.jpg`
+        return `/images/playbills/${show.location.replaceAll(".", "").split(" ").join("")}.jpg`
     }
     
     return (
