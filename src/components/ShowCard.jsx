@@ -13,12 +13,16 @@ function ShowCard({show}) {
                 {show.closes && <p className="text-bbblue font-bold">Closes {show.closes.replaceAll("-", "/")}</p>}
 
                 <ul className="flex space-x-4 mt-4">
-                    <li>
-                        <a href="#" className="px-3 py-2 text-sm font-bold text-center text-white bg-gray-700 rounded-lg hover:bg-gray-600 ring-1 ring-gray-600 hover:ring-gray-500">Discount</a>
-                    </li>
-                    <li>
-                        <a href="#" className="px-3 py-2 text-sm font-bold text-center text-white bg-gray-700 rounded-lg hover:bg-gray-600 ring-1 ring-gray-600 hover:ring-gray-500">Discount</a>
-                    </li>
+                    {show.lottery &&
+                        <li>
+                            <a href={show.discount_link} className="px-3 py-2 text-sm font-bold text-center text-white bg-gray-700 rounded-lg hover:bg-gray-600 ring-1 ring-gray-600 hover:ring-gray-500">${show.lottery} Lottery</a>
+                        </li>
+                    }
+                    {show.rush &&
+                        <li>
+                            <a href={show.discount_link} className="px-3 py-2 text-sm font-bold text-center text-white bg-gray-700 rounded-lg hover:bg-gray-600 ring-1 ring-gray-600 hover:ring-gray-500">${show.rush} rush</a>
+                        </li>
+                    }
                 </ul>
             </div>
         </div>
