@@ -54,10 +54,13 @@ function App() {
                             setAscending(true)
                         }}>Location</button>
                     </div>
-                    <div className="shows-grid">
-                        {shows.map(show => (
-                            <ShowCard key={show.id} show={show} />
-                        ))}
+                    
+                    <div className="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+                        <div className="grid gap-8 mb-6 lg:mb-16 md:grid-cols-2">
+                            {shows.map(show => (
+                                <ShowCard key={show.id} show={show} />
+                            ))}
+                        </div>
                     </div>
                 </div>
             )}

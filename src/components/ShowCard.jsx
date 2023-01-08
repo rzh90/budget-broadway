@@ -1,10 +1,25 @@
 function ShowCard({show}) {
+    function getImageUrl(show) {
+        return `src/assets/images/playbills/${show.location.replaceAll(".", "").split(" ").join("")}.jpg`
+    }
+    
     return (
-        <div className="max-w-sm border border-gray-700 rounded-lg bg-gray-800 text-gray-400">
+        <div className="items-center bg-gray-800 border-gray-700 rounded-md shadow sm:flex">
+            <img className="w-28" src={getImageUrl(show)} alt={show.name} />
             <div className="p-5">
-                <h2 className="mb-2 text-2xl font-bold text-white">{show.name}</h2>
-                <p className="mb-3">{show.location}</p>
-                <a href="#" className="inline-flex items-center px-3 py-2 text-sm font-bold text-center text-white bg-gray-700 rounded-md hover:bg-gray-600 focus:ring-4 focus:outline-none focus:ring-gray-400">Rush</a>
+                <h3 className="text-xl font-bold text-white">{show.name}</h3>
+                <p>{show.location} Theater</p>
+                <p>{show.address}</p>
+                {show.closes && <p className="text-bbblue font-bold">Closes {show.closes.replaceAll("-", "/")}</p>}
+
+                <ul className="flex space-x-4 mt-4">
+                    <li>
+                        <a href="#" className="px-3 py-2 text-sm font-bold text-center text-white bg-gray-700 rounded-lg hover:bg-gray-600 ring-1 ring-gray-600 hover:ring-gray-500">Discount</a>
+                    </li>
+                    <li>
+                        <a href="#" className="px-3 py-2 text-sm font-bold text-center text-white bg-gray-700 rounded-lg hover:bg-gray-600 ring-1 ring-gray-600 hover:ring-gray-500">Discount</a>
+                    </li>
+                </ul>
             </div>
         </div>
     )
