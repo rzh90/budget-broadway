@@ -1,3 +1,5 @@
+import DiscountButton from "./DiscountButton"
+
 function ShowCard({show}) {
     function getImageUrl(show) {
         return `src/assets/images/playbills/${show.location.replaceAll(".", "").split(" ").join("")}.jpg`
@@ -13,16 +15,8 @@ function ShowCard({show}) {
                 {show.closes && <p className="text-bbblue font-bold">Closes {show.closes.replaceAll("-", "/")}</p>}
 
                 <ul className="flex space-x-4 mt-4">
-                    {show.lottery &&
-                        <li>
-                            <a href={show.discount_link} className="px-3 py-2 text-sm font-bold text-center text-white bg-gray-700 rounded-lg hover:bg-gray-600 ring-1 ring-gray-600 hover:ring-gray-500">${show.lottery} Lottery</a>
-                        </li>
-                    }
-                    {show.rush &&
-                        <li>
-                            <a href={show.discount_link} className="px-3 py-2 text-sm font-bold text-center text-white bg-gray-700 rounded-lg hover:bg-gray-600 ring-1 ring-gray-600 hover:ring-gray-500">${show.rush} rush</a>
-                        </li>
-                    }
+                    {show.rush && <DiscountButton discountAmt={show.rush} link={show.rush_link} type="Rush" />}
+                    {show.lottery && <DiscountButton discountAmt={show.lottery} link={show.lottery_link} type="Lottery" />}
                 </ul>
             </div>
         </div>
