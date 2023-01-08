@@ -5,19 +5,17 @@ import supabase from "./config/supabaseClient"
 import ShowCard from "./components/ShowCard"
 
 function App() {
-    // const shows = [
-    //     {id: 1, name: "KPOP", location: "Circle in the Square"},
-    //     {id: 2, name: "Harry Potter", location: "Lyric"},
-    //     {id: 3, name: "Wicked", location: "Gershwin"}
-    // ]
     const [fetchError, setFetchError] = useState(null)
     const [shows, setShows] = useState(null)
+    const [orderBy, setOrderBy] = useState("name")
+    const [ascending, setAscending] = useState(true)
 
     useEffect(() => {
         const fetchShows = async() => {
             const {data, error} = await supabase
                 .from("shows")
                 .select()
+                .order(orderBy, {ascending})
 
             if(error) {
                 setFetchError("Could not fetch data")
@@ -30,7 +28,7 @@ function App() {
             }
         }
         fetchShows()
-    }, [])
+    }, [orderBy, ascending])
 
     return (
         <div>
@@ -39,7 +37,23 @@ function App() {
 
             {shows && (
                 <div className="shows">
-                    {/* order-by buttons */}
+                    <div className="order-by">
+                        <p>Order by:</p>
+                        <button onClick={() => {
+                            setOrderBy("name")
+                            setAscending(true)
+                        }}>Name (asc)</button>
+                        
+                        <button onClick={() => {
+                            setOrderBy("name")
+                            setAscending(false)
+                        }}>Name (desc)</button>
+                        
+                        <button onClick={() => {
+                            setOrderBy("location")
+                            setAscending(true)
+                        }}>Location</button>
+                    </div>
                     <div className="shows-grid">
                         {shows.map(show => (
                             <ShowCard key={show.id} show={show} />
