@@ -33,8 +33,12 @@ function Home() {
             {fetchError && (<p>{fetchError}</p>)}
 
             {shows && (
-                <div>
-                    <div className="mb-8 items-center flex gap-2 text-sm">
+                <div className="mt-8">
+                    <div className="text-center">
+                        <h1 className="text-4xl text-bbblue mb-2">Get Tickets</h1>
+                        <p className="text-xl">Discounted tickets for Broadway shows</p>
+                    </div>
+                    <div className="mt-8 mb-8 items-center flex gap-2 text-sm">
                         <span>Sort by: </span>
                         <button className="border border-gray-500 rounded-md px-3 py-1 hover:border-gray-400" onClick={() => {
                             setOrderBy("name")

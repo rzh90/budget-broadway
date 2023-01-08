@@ -6,10 +6,10 @@ function ShowCard({show}) {
     }
     
     return (
-        <div className="items-center bg-gray-800 border-gray-700 rounded-md shadow sm:flex">
+        <div className="items-center bg-gray-800 border border-gray-700 rounded-md sm:flex">
             <img className="w-28" src={getImageUrl(show)} alt={show.name} />
             <div className="p-5">
-                <h3 className="text-xl font-bold text-white">{show.name}</h3>
+                <h2 className="text-xl font-bold text-white">{show.name}</h2>
                 <p>{show.location} Theater</p>
                 <p>{show.address}</p>
                 {show.closes && <p className="text-bbblue font-bold">Closes {show.closes.replaceAll("-", "/")}</p>}
