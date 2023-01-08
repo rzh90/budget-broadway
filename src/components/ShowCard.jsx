@@ -1,12 +1,8 @@
-function ShowCard({shows}) {
+function ShowCard({show}) {
     return (
         <div>
-            {shows.map((show) => (
-                <div key={show.id}>
-                    <h2>{show.name}</h2>
-                    <p>{show.location}</p>
-                </div>
-            ))}
+            <h2>{show.name}</h2>
+            <p>{show.location}</p>
         </div>
     )
 }
