@@ -43,12 +43,12 @@ function Home() {
                         <button className="border border-gray-500 rounded-md px-3 py-1 hover:border-gray-400" onClick={() => {
                             setOrderBy("name")
                             setAscending(true)
-                        }}>Asc</button>
+                        }}>Show &#8593;</button>
                         
                         <button className="border border-gray-500 rounded-md px-3 py-1 hover:border-gray-400" onClick={() => {
                             setOrderBy("name")
                             setAscending(false)
-                        }}>Desc</button>
+                        }}>Show &#8595;</button>
                         
                         <button className="border border-gray-500 rounded-md px-3 py-1 hover:border-gray-400" onClick={() => {
                             setOrderBy("location")
