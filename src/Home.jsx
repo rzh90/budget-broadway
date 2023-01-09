@@ -33,7 +33,7 @@ function Home() {
             {fetchError && (<p>{fetchError}</p>)}
 
             {shows && (
-                <div className="mt-8">
+                <div className="mt-12 lg:mt-8">
                     <div className="text-center">
                         <h1 className="text-4xl text-bbblue mb-2">Get Tickets</h1>
                         <p className="text-xl">Discounted tickets for Broadway shows</p>
@@ -43,12 +43,12 @@ function Home() {
                         <button className="border border-gray-500 rounded-md px-3 py-1 hover:border-gray-400" onClick={() => {
                             setOrderBy("name")
                             setAscending(true)
-                        }}>Show (ascending)</button>
+                        }}>Asc</button>
                         
                         <button className="border border-gray-500 rounded-md px-3 py-1 hover:border-gray-400" onClick={() => {
                             setOrderBy("name")
                             setAscending(false)
-                        }}>Show (descending)</button>
+                        }}>Desc</button>
                         
                         <button className="border border-gray-500 rounded-md px-3 py-1 hover:border-gray-400" onClick={() => {
                             setOrderBy("location")
