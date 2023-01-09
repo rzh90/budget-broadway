@@ -1,6 +1,6 @@
 function Rush() {
     return (
-        <div className="mt-8">
+        <div className="mt-12 lg:mt-8">
             <div className="text-center mb-6">
                 <h1 className="text-4xl text-bbblue mb-2">Other Tickets</h1>
                 <p className="text-xl">General rush, student rush, and standing room</p>
