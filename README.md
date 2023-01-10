@@ -1,7 +1,7 @@
 # Budget Broadway
 <div id="screenshot" align="center" style="background-color: #000;">
   <img src="https://user-images.githubusercontent.com/52875611/211209349-ba55e5a7-3620-494c-8f95-f222953894cd.png" width="500px">
-  <br>https://budgetbroadway.netlify.app/
+  <p>https://budgetbroadway.netlify.app/</p>
   <p>Information about discounted tickets for musicals and plays on Broadway</p>
 </div>
 
