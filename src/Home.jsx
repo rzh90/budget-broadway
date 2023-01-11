@@ -8,6 +8,7 @@ function Home() {
     const [orderBy, setOrderBy] = useState("name")
     const [ascending, setAscending] = useState(true)
 
+    // fetch data from server
     useEffect(() => {
         const fetchShows = async() => {
             const {data, error} = await supabase
