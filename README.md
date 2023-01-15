@@ -9,7 +9,9 @@
 **Tech used:** HTML, CSS, JavaScript, React, PostgreSQL, Tailwind CSS
 
 ## Optimizations
-Implement new features like user profiles and watch lists.
+Implement new features:
+- User profiles
+- Watch lists
 
 ## Lessons Learned
 Best practices for creating a frontend application with React.
