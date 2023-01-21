@@ -9,7 +9,7 @@
 **Tech used:** HTML, CSS, JavaScript, React, PostgreSQL, Tailwind CSS
 
 ## Optimizations
-Implement new features:
+Features to implement:
 - User profiles
 - Watch lists
 
