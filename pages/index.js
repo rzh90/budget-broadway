@@ -10,6 +10,7 @@ import supabase from '@/config/supabaseClient'
 //components
 import ShowCard from '@/components/ShowCard'
 import SortButton from '@/components/SortButton'
+import PageTitle from '@/components/PageTitle'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -49,11 +50,7 @@ export default function Home() {
             {shows && (
                 <div className="mt-12 lg:mt-8"> {/* wrapper */}
 
-                    {/* main title and text */}
-                    <div className="text-center">
-                        <h1 className="text-4xl text-bbblue mb-2">Get Tickets</h1>
-                        <p className="text-xl">Click on a link to get discounted tickets for a Broadway show.</p>
-                    </div>
+                    <PageTitle title={"Get Tickets"}>Click on a link to get discounted tickets for a Broadway show</PageTitle>
 
                     {/* sort button */}
                     <div className="mt-8 mb-8 items-center flex gap-2 text-sm">
