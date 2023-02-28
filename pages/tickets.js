@@ -10,7 +10,7 @@ function Tickets() {
                     <p>Many Broadway shows have digital lotteries several days in advance or on the morning of each performance. Click the link to the discount for information on how to enter.</p>
                 </TicketInfoCard>
                 <TicketInfoCard ticketType={"Rush"}>
-                    <p>A limited number of rush tickets will be available for purchase online the day of the performance. Click the link to the discount for information on how to purchase.</p>
+                    <p>A limited number of rush tickets will be available for purchase online on the day of the performance. Click the link to the discount for information on how to purchase.</p>
                 </TicketInfoCard>
                 <TicketInfoCard ticketType={"General rush"}>
                     <p>A limited number of general rush tickets will be available at the box office on the day of the performance.</p>
