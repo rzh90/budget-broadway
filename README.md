@@ -1,17 +1,32 @@
 # Budget Broadway
 <div id="screenshot" align="center" style="background-color: #000;">
-  <img src="https://user-images.githubusercontent.com/52875611/211209349-ba55e5a7-3620-494c-8f95-f222953894cd.png" width="500px">
-  <p>https://budgetbroadway.netlify.app/</p>
-  <p>Information about discounted tickets for musicals and plays on Broadway</p>
+    <img src="https://user-images.githubusercontent.com/52875611/211209349-ba55e5a7-3620-494c-8f95-f222953894cd.png" width="500px">
+    <p>https://budgetbroadway.netlify.app/</p>
+    <p>Information about discounted tickets for musicals and plays on Broadway</p>
 </div>
 
-## How It's Made
-**Tech used:** HTML, CSS, JavaScript, React, PostgreSQL, Tailwind CSS
+## How to use
+Visit https://budgetbroadway.netlify.app/ to use the app.
+
+### Development
+1. Clone the repo.
+2. Create `.env` file in root directory and add the following:
+```
+NEXT_PUBLIC_SUPABASE_URL=
+NEXT_PUBLIC_SUPABASE_ANON_KEY=
+```
+3. Open the project and go to Project Settings > API in Supabase to find the project URL and anon API key.
+4. `npm i`
+5. `npm run dev`
+6. Open http://localhost:3000 with your browser to see the result.
+
+## How it's made
+**Tech used:** Next.js, PostgreSQL, Tailwind CSS
 
 ## Optimizations
 Features to implement:
 - User profiles
 - Watch lists
 
-## Lessons Learned
-Best practices for creating a frontend application with React.
+## Lessons learned
+Best practices for creating a frontend application with Next.js.

@@ -2,11 +2,14 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
-import { Alert } from 'flowbite-react'
 
+//React states and Supabase
 import { useEffect, useState } from 'react'
 import supabase from '@/config/supabaseClient'
+
+//components
 import ShowCard from '@/components/ShowCard'
+import SortButton from '@/components/SortButton'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -55,20 +58,18 @@ export default function Home() {
                     {/* sort button */}
                     <div className="mt-8 mb-8 items-center flex gap-2 text-sm">
                         <span>Sort by: </span>
-                        <button className="border border-gray-500 rounded-md px-3 py-1 hover:border-gray-400" onClick={() => {
+                        <SortButton sortType={`Show ${decodeURI("%E2%86%91")}`} buttonAction={() => {
                             setOrderBy("name")
                             setAscending(true)
-                        }}>Show &#8593;</button>
-                        
-                        <button className="border border-gray-500 rounded-md px-3 py-1 hover:border-gray-400" onClick={() => {
+                        }} />
+                        <SortButton sortType={`Show ${decodeURI("%E2%86%93")}`} buttonAction={() => {
                             setOrderBy("name")
                             setAscending(false)
-                        }}>Show &#8595;</button>
-                        
-                        <button className="border border-gray-500 rounded-md px-3 py-1 hover:border-gray-400" onClick={() => {
+                        }} />
+                        <SortButton sortType={`Location`} buttonAction={() => {
                             setOrderBy("location")
                             setAscending(true)
-                        }}>Location</button>
+                        }} />
                     </div>
 
                     {/* show list */}
