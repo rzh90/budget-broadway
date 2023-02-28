@@ -52,7 +52,7 @@ export default function Home() {
                     {/* main title and text */}
                     <div className="text-center">
                         <h1 className="text-4xl text-bbblue mb-2">Get Tickets</h1>
-                        <p className="text-xl">Discounted tickets for Broadway shows</p>
+                        <p className="text-xl">Click on a link to get discounted tickets for a Broadway show.</p>
                     </div>
 
                     {/* sort button */}

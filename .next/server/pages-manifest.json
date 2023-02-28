@@ -4,6 +4,6 @@
   "/_document": "pages/_document.js",
   "/api/hello": "pages/api/hello.js",
   "/": "pages/index.html",
-  "/rush": "pages/rush.html",
+  "/tickets": "pages/tickets.html",
   "/404": "pages/404.html"
 }

@@ -30,15 +30,22 @@ var link_default = /*#__PURE__*/__webpack_require__.n(next_link);
 function Nav() {
     return /*#__PURE__*/ jsx_runtime_.jsx("header", {
         className: "fixed w-full z-20 top-0 left-0 border-b border-gray-700 bg-gray-900",
-        children: /*#__PURE__*/ jsx_runtime_.jsx("nav", {
-            className: "bg-gray-900 px-4 py-4 mx-auto max-w-screen-xl",
-            children: /*#__PURE__*/ jsx_runtime_.jsx((link_default()), {
-                href: "/",
-                children: /*#__PURE__*/ jsx_runtime_.jsx("img", {
-                    src: "images/logo.svg",
-                    className: "w-56"
+        children: /*#__PURE__*/ (0,jsx_runtime_.jsxs)("nav", {
+            className: "bg-gray-900 px-4 py-4 mx-auto max-w-screen-xl flex justify-between items-center",
+            children: [
+                /*#__PURE__*/ jsx_runtime_.jsx((link_default()), {
+                    href: "/",
+                    children: /*#__PURE__*/ jsx_runtime_.jsx("img", {
+                        src: "images/logo.svg",
+                        className: "w-56"
+                    })
+                }),
+                /*#__PURE__*/ jsx_runtime_.jsx((link_default()), {
+                    href: "/tickets",
+                    className: "text-xs font-bold px-3 py-2 text-center text-white bg-bbblue rounded-lg hover:bg-bblightblue ring-1 ring-bblightblue hover:ring-bblightblue",
+                    children: "Ticket info"
                 })
-            })
+            ]
         })
     });
 }
