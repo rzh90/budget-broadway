@@ -1,8 +1,16 @@
-import { useEffect, useState } from "react"
-import supabase from "./config/supabaseClient"
-import ShowCard from "./components/ShowCard"
+import Head from 'next/head'
+import Image from 'next/image'
+import { Inter } from 'next/font/google'
+import styles from '@/styles/Home.module.css'
+import { Alert } from 'flowbite-react'
 
-function Home() {
+import { useEffect, useState } from 'react'
+import supabase from '@/config/supabaseClient'
+import ShowCard from '@/components/ShowCard'
+
+const inter = Inter({ subsets: ['latin'] })
+
+export default function Home() {
     const [fetchError, setFetchError] = useState(null)
     const [shows, setShows] = useState(null)
     const [orderBy, setOrderBy] = useState("name")
@@ -74,4 +82,3 @@ function Home() {
         </>
     )
 }
-export default Home
