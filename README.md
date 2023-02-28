@@ -8,7 +8,7 @@
 ## How to use
 Visit https://budgetbroadway.netlify.app/ to use the app.
 
-### Development
+## Development
 1. Clone the repo.
 2. Create `.env` file in root directory and add the following:
 ```
