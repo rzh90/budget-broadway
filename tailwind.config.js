@@ -21,7 +21,7 @@ module.exports = {
         extend: {
             fontFamily: {
                 sans: [
-                    "Montserrat"
+                    "Golos Text"
                 ]
             }
         },
