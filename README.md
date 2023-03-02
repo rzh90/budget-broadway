@@ -10,11 +10,7 @@ Visit https://budgetbroadway.netlify.app/ to use the app.
 
 ## Development
 1. Clone the repo.
-2. Create `.env` file in root directory and add the following:
-```
-NEXT_PUBLIC_SUPABASE_URL=
-NEXT_PUBLIC_SUPABASE_ANON_KEY=
-```
+2. Copy `.env.example` and save as `.env`
 3. Open the project and go to Project Settings > API in Supabase to find the project URL and anon API key.
 4. `npm i`
 5. `npm run dev`
