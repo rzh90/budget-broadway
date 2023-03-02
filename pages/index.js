@@ -67,7 +67,7 @@ export default function Home() {
                     </div>
 
                     {/* show list */}
-                    <div className="grid gap-8 mb-6 lg:mb-16 md:grid-cols-2">
+                    <div className="grid gap-8 mb-4 md:grid-cols-2">
                         {shows.map(show => show.name && (
                             <ShowCard key={show.id} show={show} />
                         ))}

@@ -2,7 +2,7 @@
 function Footer() {
     return (
         <>
-        <hr className="my-6 border-gray-800 sm:mx-auto dark:border-gray-700 lg:my-8" />
+        <hr className="mb-6 border-gray-800 sm:mx-auto dark:border-gray-700" />
 
         <footer className="p-4 sm:p-6 mx-auto max-w-screen-xl">
             <div className="md:flex md:justify-between">

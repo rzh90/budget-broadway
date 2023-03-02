@@ -17,7 +17,7 @@ function ShowCard({show}) {
 
             {/* theater info */}
             <div className="p-5 text-sm">
-                <h2 className="text-lg font-bold text-white">{show.name}</h2>
+                <h2 className="text-base font-bold text-white">{show.name}</h2>
                 <p>{show.location} Theater</p>
                 <p>{show.address}</p>
                 {show.closes && <p className="text-bbblue font-bold">Closes {show.closes.replaceAll("-", "/")}</p>}
