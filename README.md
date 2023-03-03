@@ -11,7 +11,7 @@ Visit https://budgetbroadway.netlify.app/ to use the app.
 ## Development
 1. Clone the repo.
 2. Copy `.env.example` and save as `.env`
-3. Open the project and go to Project Settings > API in Supabase to find the project URL and anon API key. Add them to the `.env` file.
+3. Go to Supabase and open the project. Go to Project Settings > API in to find the project URL and anon API key. Add them to the `.env` file.
 ```
 NEXT_PUBLIC_SUPABASE_URL=project URL
 NEXT_PUBLIC_SUPABASE_ANON_KEY=anon API key
@@ -21,7 +21,7 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=anon API key
 6. Open http://localhost:3000 with your browser to see the result.
 
 ## How it's made
-**Tech used:** Next.js, PostgreSQL, Tailwind CSS
+**Tech used:** Next.js, Supabase, Tailwind CSS
 
 ## Optimizations
 Features to implement:
