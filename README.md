@@ -11,7 +11,7 @@ Visit https://budgetbroadway.netlify.app/ to use the app.
 ## Development
 1. Clone the repo.
 2. Copy `.env.example` and save as `.env`
-3. Go to Supabase and open the project. Go to Project Settings > API in to find the project URL and anon API key. Add them to the `.env` file.
+3. Go to [Supabase](https://supabase.com/) and open the project. Go to **Project Settings** > **API** to find the *project URL* and *anon API key*. Add them to the `.env` file.
 ```
 NEXT_PUBLIC_SUPABASE_URL=project URL
 NEXT_PUBLIC_SUPABASE_ANON_KEY=anon API key
@@ -29,4 +29,4 @@ Features to implement:
 - Watch lists
 
 ## Lessons learned
-Best practices for creating a frontend application with Next.js.
+Best practices for creating an application with Next.js.
