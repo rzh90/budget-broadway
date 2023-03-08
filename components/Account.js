@@ -74,30 +74,13 @@ export default function Account({ session }) {
 
     useEffect(() => {
         getWatchlist()
-        getShows()
     }, [])
 
     async function getWatchlist() {
         const {data, error} = await supabase
-                .from("watchlist")
-                .select()
-                .eq("user_id", userId)
-
-        if(error) {
-            setFetchError("Could not fetch data")
-            setWatchlist(null)
-            console.log(error)
-        }
-        if(data) {
-            setWatchlist(data)
-            setFetchError(null)
-        }
-    }
-
-    async function getShows() {
-        const {data, error} = await supabase
                 .from("towatch")
                 .select()
+                .eq("user_id", userId)
 
         if(error) {
             setFetchError("Could not fetch data")
