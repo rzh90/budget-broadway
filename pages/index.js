@@ -50,7 +50,7 @@ export default function Home() {
                     <PageTitle title={"Get Tickets"}>Click on a link to get discounted tickets for a Broadway show</PageTitle>
 
                     {/* sort button */}
-                    <div className="mt-8 mb-8 items-center flex gap-2 text-sm">
+                    <section className="mt-8 mb-8 items-center flex gap-2 text-sm">
                         <span>Sort by: </span>
                         <SortButton sortType={`Show ${decodeURI("%E2%86%91")}`} buttonAction={() => {
                             setOrderBy("name")
@@ -64,14 +64,14 @@ export default function Home() {
                             setOrderBy("location")
                             setAscending(true)
                         }} />
-                    </div>
+                    </section>
 
                     {/* show list */}
-                    <div className="grid gap-8 mb-4 md:grid-cols-2">
+                    <section className="grid gap-8 mb-4 md:grid-cols-2">
                         {shows.map(show => show.name && (
                             <ShowCard key={show.id} show={show} />
                         ))}
-                    </div>
+                    </section>
                 </div>
             )}
         </>

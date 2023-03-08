@@ -1,5 +1,8 @@
 import { useState, useEffect } from 'react'
 import { useUser, useSupabaseClient } from '@supabase/auth-helpers-react'
+import PageTitle from './PageTitle'
+import Link from 'next/link'
+import WatchlistCard from './WatchlistCard'
 
 export default function Account({ session }) {
     // account info
@@ -10,6 +13,8 @@ export default function Account({ session }) {
     // watchlist
     const [watchlist, setWatchlist] = useState(null)
     const [fetchError, setFetchError] = useState(null)
+    const [shows, setShows] = useState(null)
+
 
     // const [loading, setLoading] = useState(true)
     // const [username, setUsername] = useState(null)
@@ -69,6 +74,7 @@ export default function Account({ session }) {
 
     useEffect(() => {
         getWatchlist()
+        getShows()
     }, [])
 
     async function getWatchlist() {
@@ -84,6 +90,22 @@ export default function Account({ session }) {
         }
         if(data) {
             setWatchlist(data)
+            setFetchError(null)
+        }
+    }
+
+    async function getShows() {
+        const {data, error} = await supabase
+                .from("towatch")
+                .select()
+
+        if(error) {
+            setFetchError("Could not fetch data")
+            setShows(null)
+            console.log(error)
+        }
+        if(data) {
+            setShows(data)
             setFetchError(null)
         }
     }
@@ -108,17 +130,20 @@ export default function Account({ session }) {
         //         <button className="button block" onClick={() => supabase.auth.signOut()}>Sign Out</button>
         //     </div>
         // </div>
-        <div>
-            <h1>Watchlist</h1>
-            <p>Hi {session.user.email}</p>
-            <button className="text-xs font-bold px-3 py-2 text-center text-white bg-bbblue rounded-lg hover:bg-bblightblue ring-1 ring-bblightblue hover:ring-bblightblue" onClick={() => supabase.auth.signOut()}>Sign Out</button>
-            {watchlist && watchlist.map(show => (
-                <div key={show.id}>
-                    <p>{show.show}</p>
-                    <p>Added on {show.created_at.substring(0, 10).replaceAll("-", "/")}</p>
-                </div>
-            ))}
-            
+        <div className="mt-12 lg:mt-8"> {/* wrapper */}
+            <PageTitle title={"Watchlist"}>Keep track of shows you want to see</PageTitle>
+
+            <section className="mt-8 mb-8 items-center flex gap-2 text-sm">
+                <p>{session.user.email}</p>
+
+                (<button className="text-bbblue hover:text-bblightblue" onClick={() => supabase.auth.signOut()}>Sign out</button>)
+                
+            </section>
+            <section className="grid gap-8 mb-4 md:grid-cols-2">
+                {shows && shows.map(show => (
+                        <WatchlistCard key={show.id} show={show} />
+                ))}
+            </section>
         </div>
     )
 }
