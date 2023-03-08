@@ -43,11 +43,18 @@ const Users = () => {
     }
 
     return (
-        <div className="grid grid-cols-1 justify-items-center ">
-            <div className="max-w-xs" style={{ padding: '50px 0 100px 0' }}>
-                {!session ? ( <Auth supabaseClient={supabase} appearance={{ theme: customTheme }} providers={[]} /> ) : ( <Account session={session} /> )}
-            </div>
-        </div>
+        <>
+            {!session ? (
+                <div className="grid grid-cols-1 justify-items-center ">
+                    <div className="max-w-xs" style={{ padding: '50px 0 100px 0' }}>
+                        <Auth supabaseClient={supabase} appearance={{ theme: customTheme }} providers={[]} />
+                    </div>
+                </div>
+            )
+            : (
+                <Account session={session} />
+            )}
+        </>
     )
 }
 
