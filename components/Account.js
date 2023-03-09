@@ -13,7 +13,7 @@ export default function Account({ session }) {
     // watchlist
     const [fetchError, setFetchError] = useState(null)
     const [shows, setShows] = useState(null)
-    const [watchlist, setWatchlist] = useState(null)
+    const [watchlist, setWatchlist] = useState([])
     const [addashow, setAddashow] = useState(null)
 
     useEffect(() => {
@@ -26,7 +26,7 @@ export default function Account({ session }) {
                 .from("towatch")
                 .select()
                 .eq("user_id", userId)
-                .order("date_added", { ascending: false })
+                .order("id", { ascending: false })
 
         if(error) {
             setFetchError("Could not fetch data")
@@ -79,7 +79,7 @@ export default function Account({ session }) {
         console.log("added ID", addashow)
         const {data, error} = await supabase
                 .from("watchlist")
-                .insert({show_id: addashow, user_id: userId})
+                .upsert({show_id: addashow, user_id: userId})
                 .select()
         if(error) {
             console.log("ERROR ADDING SHOW", error)
