@@ -13,6 +13,9 @@ export default function Account({ session }) {
     // watchlist
     const [fetchError, setFetchError] = useState(null)
     const [shows, setShows] = useState(null)
+    const [watchlist, setWatchlist] = useState(null)
+
+    const [addashow, setAddashow] = useState(null)
 
 
     // const [loading, setLoading] = useState(true)
@@ -73,13 +76,30 @@ export default function Account({ session }) {
 
     useEffect(() => {
         getWatchlist()
-    }, [])
+        getShows()
+    }, [watchlist])
 
     async function getWatchlist() {
         const {data, error} = await supabase
                 .from("towatch")
                 .select()
                 .eq("user_id", userId)
+
+        if(error) {
+            setFetchError("Could not fetch data")
+            setWatchlist(null)
+            console.log(error)
+        }
+        if(data) {
+            setWatchlist(data)
+            setFetchError(null)
+        }
+    }
+
+    async function getShows() {
+        const {data, error} = await supabase
+                .from("shows")
+                .select()
 
         if(error) {
             setFetchError("Could not fetch data")
@@ -102,8 +122,27 @@ export default function Account({ session }) {
             console.log(error)
         }
         if(data) {
-            setShows(shows.filter(show => show.id !== showId))
+            // setWatchlist(watchlist.filter(show => show.id !== showId))
+            console.log("Deleted")
         }
+    }
+
+    async function addShow(event) {
+        event.preventDefault()
+        console.log("add", addashow)
+        const {data, error} = await supabase
+                .from("watchlist")
+                .insert({show_id: addashow, user_id: userId})
+        if(error) {
+            console.log(error)
+        }
+        if(data) {
+            console.log("added", data)
+        }
+    }
+    
+    function handleChange(event) {
+        setAddashow(event)
     }
 
     return (
@@ -135,9 +174,22 @@ export default function Account({ session }) {
                 (<button className="text-bbblue hover:text-bblightblue" onClick={() => supabase.auth.signOut()}>Sign out</button>)
             </section>
 
+            {/* add show */}
+            <section className="mb-4">
+            <div className="items-center bg-gray-800 border-gray-700 rounded-md p-4 text-sm">
+                <h2 className="text-lg font-bold text-white">Add a show</h2>
+                <form onSubmit={addShow}>
+                <select onChange={(e) => handleChange(e.target.value)}>
+                    {shows && shows.map(show => show.name && (<option key={show.id} value={show.id}>{show.name}</option>))}
+                </select>
+                <input type="submit" className="text-xs font-bold px-3 py-2 text-center text-white bg-bbblue rounded-lg hover:bg-bblightblue ring-1 ring-bblightblue hover:ring-bblightblue" value="Add" />
+                </form>
+            </div>
+            </section>
+
             {/* watchlist */}
             <section className="grid gap-8 mb-4 md:grid-cols-2">
-                {shows && shows.map(show => (
+                {watchlist && watchlist.map(show => (
                         <WatchlistCard key={show.id} show={show} buttonAction={() => {deleteShow(show.id)}} />
                 ))}
             </section>
