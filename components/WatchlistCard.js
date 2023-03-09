@@ -1,14 +1,12 @@
-function WatchlistCard({show, buttonAction}) {
-    function getImageUrl(show) {
-        return `/images/playbills/${show.location.replaceAll(".", "").split(" ").join("")}.jpg`
-    }
+import WatchlistButton from "./WatchlistButton"
 
+function WatchlistCard({show, buttonAction}) {
     return (
         <div className="items-center bg-gray-800 border border-gray-700 rounded-md">
             <div className="p-5 text-sm">
                 <h2 className="text-base font-bold text-white">{show.name}</h2>
                 <ul className="lg:flex lg:space-x-4 mt-4 space-y-6 lg:space-y-0">
-                    <li><button className="px-3 py-2 text-xs font-bold text-center text-white bg-gray-700 rounded-lg hover:bg-gray-600 ring-1 ring-gray-600 hover:ring-gray-500" onClick={buttonAction}>Delete</button></li>
+                    <WatchlistButton buttonType="Remove" buttonAction={buttonAction} />
                 </ul>
             </div>
         </div>

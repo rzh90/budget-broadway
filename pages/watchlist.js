@@ -2,9 +2,11 @@ import { Auth, ThemeSupa } from '@supabase/auth-ui-react'
 import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react'
 import Account from '@/components/Account'
 
-const Users = () => {
+const Watchlist = () => {
     const session = useSession()
     const supabase = useSupabaseClient()
+
+    // Supabase auth UI theme
     const customTheme = {
         default: {
             colors: {
@@ -58,4 +60,4 @@ const Users = () => {
     )
 }
 
-export default Users
+export default Watchlist

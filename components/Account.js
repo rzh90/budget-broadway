@@ -1,9 +1,8 @@
-import { useState, useEffect } from 'react'
-import { useUser, useSupabaseClient } from '@supabase/auth-helpers-react'
-import PageTitle from './PageTitle'
-import Link from 'next/link'
-import WatchlistCard from './WatchlistCard'
-import { Alert } from 'flowbite-react'
+import { useState, useEffect } from "react"
+import { useUser, useSupabaseClient } from "@supabase/auth-helpers-react"
+import PageTitle from "./PageTitle"
+import WatchlistCard from "./WatchlistCard"
+import { Alert } from "flowbite-react"
 
 export default function Account({ session }) {
     // account info
@@ -12,17 +11,19 @@ export default function Account({ session }) {
     const userId = user.id
 
     // watchlist
-    const [fetchError, setFetchError] = useState(null)
-    const [addError, setAddError] = useState(null)
-    const [shows, setShows] = useState(null)
-    const [watchlist, setWatchlist] = useState([])
-    const [addashow, setAddashow] = useState(null)
+    const [fetchError, setFetchError] = useState(null)  // error when fetching data from Supabase
+    const [addError, setAddError] = useState(null)      // error when adding a show
+    const [shows, setShows] = useState(null)            // list of shows
+    const [watchlist, setWatchlist] = useState([])      // watchlist
+    const [addashow, setAddashow] = useState(null)      // show name from dropdown menu
 
+    // get watchlist and show list on page load
     useEffect(() => {
         getWatchlist()
         getShows()
     }, [])
 
+    // CRUD functions
     async function getWatchlist() {
         const {data, error} = await supabase
                 .from("watchlist")
@@ -78,8 +79,6 @@ export default function Account({ session }) {
     async function addShow(event) {
         event.preventDefault()
 
-        console.log("added show_name", addashow)
-
         if (watchlist.some(e => e.name === addashow)) {
             setAddError("Show has already been added. Please try again.")
         }
@@ -99,6 +98,7 @@ export default function Account({ session }) {
         }
     }
     
+    // get show name from dropdown menu
     function handleChange(event) {
         setAddashow(event)
     }
@@ -117,11 +117,11 @@ export default function Account({ session }) {
             <section className="mb-4">
             <div className="items-center bg-gray-800 border-gray-700 rounded-md p-4 text-sm">
                 <h2 className="text-lg font-bold text-white">Add a show</h2>
-                <form onSubmit={addShow} className="flex gap-2">
+                <form onSubmit={addShow} className="md:flex gap-2">
                     <select id="add_show" className="px-3 py-2 text-sm text-white bg-gray-700 rounded-md" onChange={(e) => handleChange(e.target.value)}>
                         {shows && shows.map(show => show.name && (<option key={show.id} value={show.name}>{show.name}</option>))}
                     </select>
-                    <input type="submit" className="text-xs font-bold px-3 py-2 text-center text-white bg-bbblue rounded-md hover:bg-bblightblue ring-1 ring-bblightblue hover:ring-bblightblue" value="Add" />
+                    <input type="submit" className="mt-2 md:mt-0 text-xs font-bold px-3 py-2 text-center text-white bg-bbblue rounded-md hover:bg-bblightblue ring-1 ring-bblightblue hover:ring-bblightblue" value="Add" />
                 </form>
             </div>
             </section>

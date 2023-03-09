@@ -1,3 +1,4 @@
+// card component for ticket information on "/tickets" page
 function TicketInfoCard({ticketType, children}) {
     return (
         <>
