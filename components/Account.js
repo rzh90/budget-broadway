@@ -117,7 +117,7 @@ export default function Account({ session }) {
             <section className="mb-4">
             <div className="items-center bg-gray-800 border-gray-700 rounded-md p-4 text-sm">
                 <h2 className="text-lg font-bold text-white">Add a show</h2>
-                <form onSubmit={addShow} className="md:flex gap-2">
+                <form onSubmit={addShow} className="flex flex-col md:flex-row md:gap-2">
                     <select id="add_show" className="px-3 py-2 text-sm text-white bg-gray-700 rounded-md" onChange={(e) => handleChange(e.target.value)}>
                         {shows && shows.map(show => show.name && (<option key={show.id} value={show.name}>{show.name}</option>))}
                     </select>
