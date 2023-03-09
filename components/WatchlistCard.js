@@ -1,4 +1,4 @@
-function WatchlistCard({show}) {
+function WatchlistCard({show, buttonAction}) {
     function getImageUrl(show) {
         return `/images/playbills/${show.location.replaceAll(".", "").split(" ").join("")}.jpg`
     }
@@ -14,6 +14,8 @@ function WatchlistCard({show}) {
                 <p>{show.location} Theater</p>
                 <p>{show.address}</p>
             </div>
+
+            <button className="text-xs border border-gray-500 rounded-md px-3 py-1 hover:border-gray-400" onClick={buttonAction}>Delete</button>
         </div>
     )
 }

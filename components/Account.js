@@ -93,6 +93,26 @@ export default function Account({ session }) {
         }
     }
 
+    async function deleteShow(showId) {
+        const {data, error} = await supabase
+                .from("watchlist")
+                .delete()
+                .eq("id", showId)
+        if(error) {
+            console.log(error)
+        }
+        if(data) {
+            console.log(data)
+            handleDelete(showId)
+        }
+    }
+
+    function handleDelete(showId) {
+        setWatchlist(prevWatchlist => {
+            return prevWatchlist.filter(show => show.id !== showId)
+        })
+    }
+
     return (
         // <div className="form-widget">
         //     <div>
@@ -116,15 +136,16 @@ export default function Account({ session }) {
         <div className="mt-12 lg:mt-8"> {/* wrapper */}
             <PageTitle title={"Watchlist"}>Keep track of shows you want to see</PageTitle>
 
+            {/* user */}
             <section className="mt-8 mb-8 items-center flex gap-2 text-sm">
                 <p>{session.user.email}</p>
-
                 (<button className="text-bbblue hover:text-bblightblue" onClick={() => supabase.auth.signOut()}>Sign out</button>)
-                
             </section>
+
+            {/* watchlist */}
             <section className="grid gap-8 mb-4 md:grid-cols-2">
                 {shows && shows.map(show => (
-                        <WatchlistCard key={show.id} show={show} />
+                        <WatchlistCard key={show.id} show={show} buttonAction={() => {deleteShow(show.id)}} />
                 ))}
             </section>
         </div>
