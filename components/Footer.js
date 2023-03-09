@@ -23,7 +23,7 @@ function Footer() {
                     <div className="text-sm">
                         <h2 className="mb-6 text-sm font-semibold text-white uppercase dark:text-white">Tickets</h2>
                         <ul className="text-gray-500">
-                            <li className="mb-4"><a href="https://www.seatgeek.com/" className="hover:text-white">SeakGeek</a></li>
+                            <li className="mb-4"><a href="https://www.seatgeek.com/" className="hover:text-white">SeatGeek</a></li>
                             <li className="mb-4"><a href="https://www.telecharge.com/" className="hover:text-white">Telecharge</a></li>
                             <li><a href="https://www.ticketmaster.com/" className="hover:text-white">Ticketmaster</a></li>
                         </ul>
