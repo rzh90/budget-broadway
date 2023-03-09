@@ -13,9 +13,11 @@ function WatchlistCard({show, buttonAction}) {
                 <h2 className="text-base font-bold text-white">{show.name}</h2>
                 <p>{show.location} Theater</p>
                 <p>{show.address}</p>
+            
+                <ul className="lg:flex lg:space-x-4 mt-4 space-y-6 lg:space-y-0">
+                    <li><button className="px-3 py-2 text-xs font-bold text-center text-white bg-gray-700 rounded-lg hover:bg-gray-600 ring-1 ring-gray-600 hover:ring-gray-500" onClick={buttonAction}>Delete</button></li>
+                </ul>
             </div>
-
-            <button className="text-xs border border-gray-500 rounded-md px-3 py-1 hover:border-gray-400" onClick={buttonAction}>Delete</button>
         </div>
     )
 }
