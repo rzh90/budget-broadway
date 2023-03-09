@@ -3,6 +3,7 @@ import { useUser, useSupabaseClient } from '@supabase/auth-helpers-react'
 import PageTitle from './PageTitle'
 import Link from 'next/link'
 import WatchlistCard from './WatchlistCard'
+import { Alert } from 'flowbite-react'
 
 export default function Account({ session }) {
     // account info
@@ -12,6 +13,7 @@ export default function Account({ session }) {
 
     // watchlist
     const [fetchError, setFetchError] = useState(null)
+    const [addError, setAddError] = useState(null)
     const [shows, setShows] = useState(null)
     const [watchlist, setWatchlist] = useState([])
     const [addashow, setAddashow] = useState(null)
@@ -23,7 +25,7 @@ export default function Account({ session }) {
 
     async function getWatchlist() {
         const {data, error} = await supabase
-                .from("towatch")
+                .from("watchlist")
                 .select()
                 .eq("user_id", userId)
                 .order("id", { ascending: false })
@@ -53,7 +55,7 @@ export default function Account({ session }) {
         }
         if(data) {
             setShows(data)
-            setAddashow(data[0].id)
+            setAddashow(data[0].name)
             setFetchError(null)
         }
     }
@@ -76,17 +78,24 @@ export default function Account({ session }) {
     async function addShow(event) {
         event.preventDefault()
 
-        console.log("added ID", addashow)
-        const {data, error} = await supabase
-                .from("watchlist")
-                .upsert({show_id: addashow, user_id: userId})
-                .select()
-        if(error) {
-            console.log("ERROR ADDING SHOW", error)
+        console.log("added show_name", addashow)
+
+        if (watchlist.some(e => e.name === addashow)) {
+            setAddError("Show has already been added. Please try again.")
         }
-        if(data) {
-            console.log("added", data)
-            getWatchlist()
+        else{
+            setAddError(null)
+            const {data, error} = await supabase
+                    .from("watchlist")
+                    .insert({name: addashow, user_id: userId})
+                    .select()
+            if(error) {
+                console.log("ERROR ADDING SHOW", error)
+            }
+            if(data) {
+                console.log("added", data)
+                getWatchlist()
+            }
         }
     }
     
@@ -110,15 +119,17 @@ export default function Account({ session }) {
                 <h2 className="text-lg font-bold text-white">Add a show</h2>
                 <form onSubmit={addShow} className="flex gap-2">
                     <select id="add_show" className="px-3 py-2 text-sm text-white bg-gray-700 rounded-md" onChange={(e) => handleChange(e.target.value)}>
-                        {shows && shows.map(show => show.name && (<option key={show.id} value={show.id}>{show.name}</option>))}
+                        {shows && shows.map(show => show.name && (<option key={show.id} value={show.name}>{show.name}</option>))}
                     </select>
                     <input type="submit" className="text-xs font-bold px-3 py-2 text-center text-white bg-bbblue rounded-md hover:bg-bblightblue ring-1 ring-bblightblue hover:ring-bblightblue" value="Add" />
                 </form>
             </div>
             </section>
 
+            {addError && <Alert color="failure" className="mb-4"><span>{addError}</span></Alert>}
+
             {/* watchlist */}
-            <section className="grid gap-8 mb-4 md:grid-cols-2">
+            <section className="grid gap-8 mb-4 md:grid-cols-3">
                 {watchlist.length ? (
                     watchlist.map(show => (
                     <WatchlistCard key={show.id} show={show} buttonAction={() => {deleteShow(show.id)}} />
