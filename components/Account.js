@@ -11,7 +11,6 @@ export default function Account({ session }) {
     const userId = user.id
 
     // watchlist
-    const [watchlist, setWatchlist] = useState(null)
     const [fetchError, setFetchError] = useState(null)
     const [shows, setShows] = useState(null)
 
@@ -98,19 +97,13 @@ export default function Account({ session }) {
                 .from("watchlist")
                 .delete()
                 .eq("id", showId)
+                .select()
         if(error) {
             console.log(error)
         }
         if(data) {
-            console.log(data)
-            handleDelete(showId)
+            setShows(shows.filter(show => show.id !== showId))
         }
-    }
-
-    function handleDelete(showId) {
-        setWatchlist(prevWatchlist => {
-            return prevWatchlist.filter(show => show.id !== showId)
-        })
     }
 
     return (
