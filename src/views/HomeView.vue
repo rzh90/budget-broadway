@@ -1,14 +1,14 @@
 <template>
-    <div className="mt-12 lg:mt-8">
-        <div className="text-center">
-            <h1 className="text-4xl text-bbblue mb-2">Get Tickets</h1>
-            <p className="text-xl">Discounted tickets for Broadway shows</p>
+    <div class="mt-12 lg:mt-8">
+        <div class="text-center">
+            <h1 class="text-4xl text-bbblue mb-2">Get Tickets</h1>
+            <p class="text-xl">Discounted tickets for Broadway shows</p>
         </div>
 
         <div v-if="error">{{ error }}</div>
 
         <div v-if="shows">
-            <div className="grid gap-8 mb-6 lg:mb-16 md:grid-cols-2">
+            <div class="grid gap-8 mb-6 lg:mb-16 md:grid-cols-2">
                 <div class="items-center bg-gray-800 border border-gray-700 rounded-md flex" v-for="show in shows" :key="show.id">
                     <div class="p-5">
                         <h2 class="text-xl font-bold text-white">{{ show.name }}</h2>
