@@ -1,35 +1,32 @@
-# .
+# Budget Broadway
+<div id="screenshot" align="center" style="background-color: #000;">
+    <img src="https://user-images.githubusercontent.com/52875611/211209349-ba55e5a7-3620-494c-8f95-f222953894cd.png" width="500px">
+    <p>https://budgetbroadway.netlify.app/</p>
+    <p>Information about discounted tickets for Broadway musicals and plays</p>
+</div>
 
-This template should help get you started developing with Vue 3 in Vite.
+## How to use
+Visit https://budgetbroadway.netlify.app/ to use the app.
 
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
+## Development
+1. Clone the repo.
+2. Copy `.env.example` and save as `.env`
+3. Go to [Supabase](https://supabase.com/) and open the project. Go to **Project Settings** > **API** to find the *project URL* and *anon API key*. Add them to the `.env` file.
 ```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
+VITE_API_SUPABASE_URL=project URL
+VITE_API_SUPABASE_ANON_KEY=anon API key
 ```
+4. `npm i`
+5. `npm run dev`
+6. Open http://localhost:5173 with your browser to see the result.
 
-### Compile and Minify for Production
+## How it's made
+**Tech used:** Vue, Supabase, Tailwind CSS
 
-```sh
-npm run build
-```
+## Optimizations
+Features to implement:
+- User profiles
+- Watch lists
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-npm run test:unit
-```
+## Lessons learned
+Best practices for creating an application with Vue.
