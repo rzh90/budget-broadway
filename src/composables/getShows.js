@@ -17,6 +17,7 @@ function getShows() {
         if(data) {
             console.log(data)
             shows.value = data
+            shows.value = shows.value.filter(show => show.name !== null)
         }
     }
 
