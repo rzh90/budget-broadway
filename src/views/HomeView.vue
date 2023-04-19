@@ -8,6 +8,14 @@
             <p>Click on a link to get discounted tickets for a Broadway show</p>
         </section>
 
+        <!-- sort buttons -->
+        <section class="mt-8 mb-8 items-center flex gap-2 text-sm">
+            <span>Sort by: </span>
+            <button className="border border-gray-500 rounded-md px-3 py-1 hover:border-gray-400">Show &#8593;</button>
+            <button className="border border-gray-500 rounded-md px-3 py-1 hover:border-gray-400">Show &#8595;</button>
+            <button className="border border-gray-500 rounded-md px-3 py-1 hover:border-gray-400">Location</button>
+        </section>
+
         <!-- shows -->
         <section v-if="error">{{ error }}</section>
         <section v-if="shows">

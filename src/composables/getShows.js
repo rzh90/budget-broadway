@@ -3,12 +3,13 @@ import supabase from "../config/supabaseClient"
 
 function getShows() {
     const shows = ref(null), error = ref(null)
+    let orderBy = "name", ascending = true
 
     const fetchShows = async() => {
         const {data, err} = await supabase
                 .from("shows")
                 .select()
-                .order("name", {ascending: true})
+                .order(orderBy, {ascending})
 
         if(err) {
             error.value = err
