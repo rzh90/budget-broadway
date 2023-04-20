@@ -9,6 +9,7 @@
     "test:unit": "vitest"
   },
   "dependencies": {
+    "@headlessui/vue": "^1.7.13",
     "@supabase/supabase-js": "^2.20.0",
     "autoprefixer": "^10.4.14",
     "flowbite": "^1.6.5",
