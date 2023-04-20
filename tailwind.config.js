@@ -8,7 +8,8 @@ module.exports = {
     theme: {
         colors: {
             "bbblue": "#00a3dd",
-            "bbdarkblue": "#132554"
+            "bbdarkblue": "#132554",
+            "bblightblue": "#00bcff",
         },
         extend: {
             fontFamily: {

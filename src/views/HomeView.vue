@@ -1,6 +1,4 @@
 <template>
-    
-
     <!-- wrapper -->
     <div class="mt-12 lg:mt-8">
 
