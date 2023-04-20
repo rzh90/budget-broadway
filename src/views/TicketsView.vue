@@ -2,10 +2,7 @@
     <div class="mt-12 lg:mt-8">
 
         <!-- heading -->
-        <section class="text-center mb-6">
-            <h1 class="text-3xl text-bbblue mb-2">Ticket Information</h1>
-            <p>More information about discounted tickets</p>
-        </section>
+        <PageTitle title="Ticket Information">More information about discounted tickets</PageTitle>
 
         <!-- discount tickets -->
         <section class="grid gap-8 mb-6 lg:mb-16 md:grid-cols-3">
@@ -36,10 +33,8 @@
         </section>
 
         <!-- discount ticket programs -->
-        <section class="text-center mb-6">
-            <h1 class="text-3xl text-bbblue mb-2">Discount Ticket Programs</h1>
-            <p>Discount programs and rewards</p>
-        </section>
+        <PageTitle title="Discount Ticket Programs">Discount programs and rewards</PageTitle>
+        
         <section class="grid gap-8 mb-6 lg:mb-16 md:grid-cols-3">
             <div class="items-center bg-gray-800 border-gray-700 rounded-md p-4">
                 <h2 class="text-lg font-bold text-white">30 Under 35</h2>
@@ -68,10 +63,8 @@
         </section>
 
         <!-- discount codes -->
-        <section class="text-center mb-6">
-            <h1 class="text-3xl text-bbblue mb-2">Discount Codes</h1>
-            <p>Discount codes and Broadway Week codes</p>
-        </section>
+        <PageTitle title="Discount Codes">Discount codes and Broadway Week codes</PageTitle>
+
         <section class="grid gap-8 mb-6 lg:mb-16 md:grid-cols-3">
             <div class="items-center bg-gray-800 border-gray-700 rounded-md p-4">
                 <h2 class="text-lg font-bold text-white">Broadway Week</h2>
@@ -90,3 +83,12 @@
         </section>
     </div>
 </template>
+
+<script>
+import PageTitle from "../components/PageTitle.vue"
+
+export default {
+    name: "TicketsView",
+    components: { PageTitle }
+}
+</script>
