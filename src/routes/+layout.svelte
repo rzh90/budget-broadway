@@ -5,5 +5,10 @@
 </script>
 
 <Nav />
-<slot></slot>
+<main class="mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+    <!-- wrapper -->
+    <div class="mt-12 lg:mt-8">
+        <slot></slot>
+    </div>
+</main>
 <Footer />
