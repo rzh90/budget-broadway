@@ -5,7 +5,7 @@
 
     export let data
     let {shows} = data
-    $: ({shows} = data);
+    $: ({shows} = data)
 </script>
 
 <PageTitle title="Get Tickets">Click on a link to get discounted tickets for a Broadway show</PageTitle>
