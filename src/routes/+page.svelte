@@ -1,10 +1,10 @@
 <script>
+    import supabase from "$lib/supabaseClient"
+    import { flip } from "svelte/animate"
+    
     import PageTitle from "$lib/PageTitle.svelte"
     import SortButton from "$lib/SortButton.svelte"
     import ShowCard from "$lib/ShowCard.svelte"
-    import supabase from "$lib/supabaseClient"
-    import { fade, slide, scale } from "svelte/transition"
-    import { flip } from "svelte/animate"
 
     export let data
     let {shows} = data
