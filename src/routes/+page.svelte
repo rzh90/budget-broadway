@@ -41,9 +41,7 @@
 <section class="grid gap-8 mb-6 lg:mb-16 md:grid-cols-2">
     {#each shows as show (show.id)}
     <div animate:flip={{duration: 500}}>
-        {#if show.name}
-            <ShowCard {show} />
-        {/if}
+        <ShowCard {show} />
     </div>
     {/each}
 </section>

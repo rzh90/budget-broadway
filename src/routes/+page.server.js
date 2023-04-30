@@ -6,6 +6,6 @@ export async function load() {
                             .select()
                             .order("name")
     return {
-        shows: data ?? []
+        shows: data.filter(show => show.name != null)
     }
 }
