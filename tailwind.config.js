@@ -1,29 +1,13 @@
-/**
- * @type {import('@types/tailwindcss/tailwind-config').TailwindConfig}
- */
-module.exports = {
-    content: [
-        "./node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}",
-        "./public/**/*.html",
-        "./app/**/*.{js,ts,jsx,tsx}",
-        "./pages/**/*.{js,ts,jsx,tsx}",
-        "./components/**/*.{js,ts,jsx,tsx}",
-    ],
-    plugins: [
-        require("flowbite/plugin")
-    ],
+/** @type {import('tailwindcss').Config} */
+export default {
+    content: ['./src/**/*.{html,js,svelte,ts}'],
     theme: {
         colors: {
             "bbblue": "#00a3dd",
             "bbdarkblue": "#132554",
             "bblightblue": "#00bcff",
         },
-        extend: {
-            fontFamily: {
-                sans: [
-                    "Golos Text"
-                ]
-            }
-        },
     },
-  };
+    plugins: [],
+}
+

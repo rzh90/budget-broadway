@@ -1,32 +1,38 @@
-# Budget Broadway
-<div id="screenshot" align="center" style="background-color: #000;">
-    <img src="https://user-images.githubusercontent.com/52875611/211209349-ba55e5a7-3620-494c-8f95-f222953894cd.png" width="500px">
-    <p>https://budgetbroadway.netlify.app/</p>
-    <p>Information about discounted tickets for Broadway musicals and plays</p>
-</div>
+# create-svelte
 
-## How to use
-Visit https://budgetbroadway.netlify.app/ to use the app.
+Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
 
-## Development
-1. Clone the repo.
-2. Copy `.env.example` and save as `.env`
-3. Go to [Supabase](https://supabase.com/) and open the project. Go to **Project Settings** > **API** to find the *project URL* and *anon API key*. Add them to the `.env` file.
+## Creating a project
+
+If you're seeing this, you've probably already done this step. Congrats!
+
+```bash
+# create a new project in the current directory
+npm create svelte@latest
+
+# create a new project in my-app
+npm create svelte@latest my-app
 ```
-NEXT_PUBLIC_SUPABASE_URL=project URL
-NEXT_PUBLIC_SUPABASE_ANON_KEY=anon API key
+
+## Developing
+
+Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+
+```bash
+npm run dev
+
+# or start the server and open the app in a new browser tab
+npm run dev -- --open
 ```
-4. `npm i`
-5. `npm run dev`
-6. Open http://localhost:3000 with your browser to see the result.
 
-## How it's made
-**Tech used:** Next.js, Supabase, Tailwind CSS
+## Building
 
-## Optimizations
-Features to implement:
-- User profiles
-- Watch lists
+To create a production version of your app:
 
-## Lessons learned
-Best practices for creating an application with Next.js.
+```bash
+npm run build
+```
+
+You can preview the production build with `npm run preview`.
+
+> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
