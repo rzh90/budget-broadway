@@ -5,7 +5,7 @@
 
         <!-- logo -->
         <div class="mb-6 md:mb-0">
-            <a href="/" class="flex items-center"><img src="logo.svg" class="h-8 mr-3" alt="Budget Broadway Logo" /></a>
+            <a href="/" class="flex items-center"><img src="../logo.svg" class="h-8 mr-3" alt="Budget Broadway Logo" /></a>
         </div>
         
         <!-- links -->
